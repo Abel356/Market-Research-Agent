@@ -1,4 +1,4 @@
-# Tunnel - AI Agents for Simulated Market Research
+# AI Agents for Simulated Market Research
 
 > Test your product ideas against 200+ intelligent AI personas in real-time. Get market validation in seconds, not months.
 
