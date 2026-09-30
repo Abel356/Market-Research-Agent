@@ -1,0 +1,20 @@
+{
+  "name": "Update API Documentation",
+  "description": "Automatically update API documentation when API routes are modified",
+  "trigger": {
+    "type": "file_save",
+    "patterns": ["src/app/api/**/*.ts"]
+  },
+  "actions": [
+    {
+      "type": "ai_task",
+      "prompt": "Generate or update API documentation for the modified endpoint. Include:\n1. Endpoint URL and HTTP method\n2. Request/response schemas\n3. Authentication requirements\n4. Error responses\n5. Example requests/responses\n6. Rate limiting information\n\nFormat as OpenAPI 3.0 specification.",
+      "context_files": ["{{modified_file}}"]
+    },
+    {
+      "type": "file_update",
+      "target": "docs/api.md",
+      "action": "append"
+    }
+  ]
+}

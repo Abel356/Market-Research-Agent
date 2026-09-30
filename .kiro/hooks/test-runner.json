@@ -1,0 +1,22 @@
+{
+  "name": "Run Tests on Save",
+  "description": "Automatically run relevant tests when component files are saved",
+  "trigger": {
+    "type": "file_save",
+    "patterns": ["src/components/**/*.tsx", "src/lib/**/*.ts"]
+  },
+  "actions": [
+    {
+      "type": "command",
+      "command": "npm run test -- --testPathPattern={{file_path}}"
+    },
+    {
+      "type": "notification",
+      "message": "Running tests for {{file_name}}..."
+    }
+  ],
+  "conditions": {
+    "file_extensions": [".tsx", ".ts"],
+    "exclude_patterns": ["*.test.ts", "*.spec.ts"]
+  }
+}

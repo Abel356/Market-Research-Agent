@@ -1,0 +1,19 @@
+{
+  "name": "Validate Persona Data",
+  "description": "Validate persona data structure and consistency when persona files are modified",
+  "trigger": {
+    "type": "file_save",
+    "patterns": ["src/lib/personas.ts", "src/types/index.ts"]
+  },
+  "actions": [
+    {
+      "type": "ai_task",
+      "prompt": "Review the persona data structure and validate:\n1. All required fields are present\n2. Demographic data is realistic and diverse\n3. Personality traits are within valid ranges (1-10)\n4. Location coordinates are valid\n5. Industry/job title combinations make sense\n\nProvide specific feedback on any issues found.",
+      "context_files": ["src/lib/personas.ts", "src/types/index.ts"]
+    },
+    {
+      "type": "notification",
+      "message": "Persona data validation completed"
+    }
+  ]
+}

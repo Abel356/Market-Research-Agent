@@ -1,0 +1,26 @@
+{
+  "name": "TypeScript Type Check",
+  "description": "Run TypeScript type checking when TypeScript files are modified",
+  "trigger": {
+    "type": "file_save",
+    "patterns": ["src/**/*.ts", "src/**/*.tsx"]
+  },
+  "actions": [
+    {
+      "type": "command",
+      "command": "npm run type-check"
+    },
+    {
+      "type": "notification",
+      "message": "Type checking completed",
+      "condition": "success"
+    },
+    {
+      "type": "notification",
+      "message": "Type errors found - check terminal",
+      "condition": "error",
+      "level": "error"
+    }
+  ],
+  "debounce": 2000
+}

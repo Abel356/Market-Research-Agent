@@ -1,0 +1,20 @@
+{
+  "name": "Performance Audit",
+  "description": "Audit Three.js and React performance when 3D components are modified",
+  "trigger": {
+    "type": "file_save",
+    "patterns": ["src/components/MarketGlobe.tsx", "src/components/MarketSimulation.tsx"]
+  },
+  "actions": [
+    {
+      "type": "ai_task",
+      "prompt": "Review the 3D visualization code for performance optimization opportunities:\n1. Three.js rendering efficiency\n2. React re-render optimization\n3. Memory usage patterns\n4. Animation performance\n5. LOD implementation\n6. Instancing usage\n7. Frustum culling\n8. Frame rate optimization\n\nProvide specific recommendations for achieving 60fps with 200+ objects.",
+      "context_files": ["src/components/MarketGlobe.tsx", "src/components/MarketSimulation.tsx"]
+    },
+    {
+      "type": "command",
+      "command": "npm run build",
+      "description": "Check bundle size impact"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Accessibility Review",
+  "description": "Review components for accessibility compliance when UI components are modified",
+  "trigger": {
+    "type": "manual",
+    "button_text": "Check Accessibility"
+  },
+  "actions": [
+    {
+      "type": "ai_task",
+      "prompt": "Review the React components for WCAG 2.1 accessibility compliance. Check for:\n1. Proper semantic HTML usage\n2. ARIA labels and roles\n3. Keyboard navigation support\n4. Color contrast ratios\n5. Focus management\n6. Screen reader compatibility\n7. Alternative text for images\n8. Form label associations\n\nProvide specific recommendations for improvements.",
+      "context_files": ["src/components/**/*.tsx"]
+    },
+    {
+      "type": "notification",
+      "message": "Accessibility review completed - check results"
+    }
+  ]
+}
